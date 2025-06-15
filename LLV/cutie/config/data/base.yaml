@@ -1,0 +1,22 @@
+defaults:
+  - datasets
+
+pre_training:
+  datasets:
+    - FSS
+    - DUTS_TR
+    - DUTS_TE
+    - ECSSD
+    - BIG
+    - HRSOD
+
+main_training:
+  datasets:
+    # 일단 이벤트 데이터만 학습
+    #- DAVIS
+    #- YouTubeVOS
+      # 이벤트 데이터용 추가
+    - LowLightVOS
+    
+  num_iterations: 100000 # epoch 수 ≈ num_iterations / (total_samples / batch_size)
+  lr_schedule_steps: [90000, 95000]
